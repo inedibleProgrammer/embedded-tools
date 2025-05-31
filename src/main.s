@@ -1,8 +1,18 @@
+/*
+This is a minimal program for turning on User LED LD2 for the
+NUCLEO-F401RE.
+
+Simple compile instructions:
+- arm-none-eabi-as -mcpu=cortex-m4 -mthumb main.s -o main.o
+- arm-none-eabi-ld -Ttext=0x08000000 main.o -o main.elf
+
+Download:   
+- openocd -f interface/stlink.cfg -f target/stm32f4x.cfg -c "program main.elf reset exit"
+*/
+
 .syntax unified
 .cpu cortex-m4
 .thumb
-
-.equ RCC, 0x40023800
 
 .word 0x20020000        /* _estack: top of RAM */
 .word _start+1            /* Reset handler. The +1 is necessary to specify thumb mode */

@@ -23,3 +23,17 @@ NUCLEO-F401RE
  - break Reset_Handler
 
 
+# Useful
+
+```
+User LD2: the green LED is a user LED connected to ARDUINO ® signal D13 corresponding
+to STM32 I/O PA5 (pin 21) 
+```
+
+3322 2222 2222 1111 1111 1100 0000 0000
+1098 7654 3210 9876 5432 1098 7654 3210
+
+AHB1
+0x40023800 - 0x40023BFF RCC
+0x40020000 - 0x400203FF GPIOA
+

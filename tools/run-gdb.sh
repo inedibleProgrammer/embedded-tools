@@ -9,7 +9,7 @@ GDB_EXEC="arm-none-eabi-gdb"                            # Adjust if needed
 ELF_FILE="build/main.elf"                             # Your ELF file
 
 # === Start OpenOCD in background ===
-openocd $OPENOCD_CFG > scripts/openocd.log 2>&1 &
+openocd $OPENOCD_CFG > tools/openocd.log 2>&1 &
 OPENOCD_PID=$!
 
 echo "Started OpenOCD with PID $OPENOCD_PID"
@@ -27,4 +27,4 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 # === Start GDB and connect ===
-$GDB_EXEC -ex "source ./scripts/.gdbinit" -ex "target remote localhost:3333" "$ELF_FILE"
+$GDB_EXEC -ex "source ./tools/.gdbinit" -ex "target remote localhost:3333" "$ELF_FILE"
